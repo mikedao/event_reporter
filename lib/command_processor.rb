@@ -36,13 +36,21 @@ class CommandProcessor
   end
 
   def load_file(entered_command)
-    if entered_command.split[1] == nil
+    if entered_filename(entered_command) == nil
       filename = "event_attendees.csv"
     else
-      filename = entered_command.split[1]
+      filename = entered_filename(entered_command)
     end
-    csvfile.load_file(filename)
-    outstream.puts csvfile.data[0]
+    if File.exist?(filename)
+      csvfile.load_file(filename)
+      puts csvfile.data[0]
+    else
+      outstream.puts Display.file_does_not_exist
+    end
+  end
+
+  def entered_filename(entered_command)
+    entered_command.split[1]
   end
 
 
