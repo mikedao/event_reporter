@@ -15,7 +15,12 @@ module Display
   def self.quit_message
     "Quitting Event Reporter."
   end
-  
+
+  def self.file_does_not_exist
+    "File does not exist."
+  end
+
+
   #
   #
   # def self.help(item)
