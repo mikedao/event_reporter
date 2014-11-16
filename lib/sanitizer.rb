@@ -32,4 +32,30 @@ module Sanitizer
   def self.last_name_sanitizer(data)
     data.each { |data| data[2].downcase! }
   end
+
+  def self.city_sanitizer(data)
+  skip  
+    data.each do |data|
+      data[6] = format_city(data[6])
+    end
+  end
+
+  def self.format_city(city)
+  skip
+    data[6] == city.downcase!
+  end
+
+  def self.state_sanitizer(data)
+  skip
+    data.each do |data|
+      data[7] = format_state(data[7])
+  end
+
+  def self.format_state(state)
+  skip
+    if data[7].empty?
+      data[7] == "XX"
+    else
+      data[7] == state[0..1].upcase!
+  end
 end
