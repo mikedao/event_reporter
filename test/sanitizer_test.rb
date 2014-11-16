@@ -82,6 +82,4 @@ class SanitizerTest < Minitest::Test
     assert_equal "siegrest-jones", sanitized_data[542][2]
   end
 
-
-
 end

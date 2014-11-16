@@ -16,9 +16,3 @@ class CSVHandler
     end
   end
 end
-#
-# csvfile = CSVHandler.new
-# csvfile.load_file("event_attendees.csv")
-# puts csvfile.data
-# puts csvfile.data[0]
-# puts "#{csvfile.data.size} total records."
