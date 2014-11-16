@@ -17,12 +17,17 @@ class CLI
   def call
     outstream.puts Display.intro
 
-    until commandprocessor.finished?(command)
+    until finished?
       outstream.print Display.command_request
-      @command = instream.gets.strip.downcase.split(' ')
+      @command = instream.gets.strip.downcase
       commandprocessor.process_command(command)
     end
   end
+
+  def finished?
+    command == "q" || command == "quit"
+  end
+
 
 end
 

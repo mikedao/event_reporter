@@ -1,4 +1,6 @@
 require_relative 'display'
+require_relative 'help'
+require_relative 'csvhandler'
 
 class CommandProcessor
   attr_reader   :command,
@@ -11,32 +13,26 @@ class CommandProcessor
     @command    = ""
   end
 
-  def process_command(command)
-    @command = command
+  def process_command(entered_command)
+    @command = entered_command
     case
-    when help_only?
-      outstream.puts Display.help_only
-    when help_queue_only?
-      outstream.puts Display.help_queue_only
+    when command == ""
+        outstream.puts Display.invalid_command
+    when command[0..3] == "help"
+      Help.show_help(instream,outstream,command)
+    when command[0..3] == "load"
+      puts "call load method"
+    when command[0..4] == "queue"
+      puts "call queue method"
+    when command[0..3] == "find"
+      puts "call find method"
+    else
+      outstream.puts Display.invalid_command
     end
-
-
   end
 
-  def help_only?
-    command[0] == "help" && command[1].nil?
-  end
-
-  def not_help_only?
-    command[0] == "help" && !command[1].nil?
-  end
-
-  def finished?(input)
-    input == ["q"] || input == ["quit"]
-  end
-
-  def help_queue_only?
-    command[0] == "help" && command[1] && command[2].nil?
+  def finished?(entered_command)
+    entered_command = "quit" || entered_command = "q"
   end
 
 
