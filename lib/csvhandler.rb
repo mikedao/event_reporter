@@ -15,4 +15,27 @@ class CSVHandler
       ]
     end
   end
+
+  def save_file(filename, data)
+    File.open(filename, "w") do |file|
+      file.puts csv_header
+    end
+
+    File.open(filename, 'a') do |file|
+      data.map do |data|
+        file.puts data_to_save(data)
+      end
+    end
+  end
+
+  def data_to_save(data)
+    "#{data[0]},#{data[1]},#{data[2]},#{data[3]},#{data[4]},#{data[5]},#{data[6]},#{data[7]},#{data[8]}"
+  end
+
+  def csv_header
+    "RegDate,first_Name,last_Name,Email_Address,HomePhone,Street,City,State,Zipcode"
+  end
+
+
+
 end
