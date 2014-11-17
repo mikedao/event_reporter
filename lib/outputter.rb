@@ -1,5 +1,6 @@
 require_relative 'csvhandler'
 require_relative 'sanitizer'
+# to output the queue (Search results)
 
 module Outputter
 

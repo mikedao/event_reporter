@@ -36,6 +36,4 @@ class CSVHandler
     "RegDate,first_Name,last_Name,Email_Address,HomePhone,Street,City,State,Zipcode"
   end
 
-
-
 end

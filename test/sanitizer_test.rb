@@ -82,4 +82,14 @@ class SanitizerTest < Minitest::Test
     assert_equal "siegrest-jones", sanitized_data[542][2]
   end
 
+  def test_city_sanitizer
+    skip
+    csvfile = CSVHandler.new
+    csvfile.loadfile("event_attendees.csv")
+  end
+
+  def test_format_city
+    assert_equal "yes", Sanitizer.format_city("yes")
+  end
+
 end
