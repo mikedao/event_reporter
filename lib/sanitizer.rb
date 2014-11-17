@@ -34,28 +34,31 @@ module Sanitizer
   end
 
   def self.city_sanitizer(data)
-  skip  
     data.each do |data|
       data[6] = format_city(data[6])
     end
   end
 
   def self.format_city(city)
-  skip
-    data[6] == city.downcase!
+    if city.nil? || city == ""
+      city = "no city provided"
+    else
+      city.downcase
+    end
+
   end
 
   def self.state_sanitizer(data)
-  skip
     data.each do |data|
       data[7] = format_state(data[7])
+    end
   end
 
   def self.format_state(state)
-  skip
-    if data[7].empty?
-      data[7] == "XX"
+    if state == "" || state.nil?
+      state = "xx"
     else
-      data[7] == state[0..1].upcase!
+      state = state[0..1].upcase
+    end
   end
 end

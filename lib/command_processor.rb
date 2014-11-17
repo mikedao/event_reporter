@@ -38,8 +38,8 @@ class CommandProcessor
     end
   end
 
+
   def find_things(entered_command)
-    # outstream.puts(entered_command.split[1])
     attribute = entered_command.split[1]
     search_criteria = determine_criteria(entered_command)
     outstream.puts "Search Criteria :#{search_criteria}"
@@ -59,7 +59,6 @@ class CommandProcessor
     end
     if File.exist?(filename)
       csvfile.load_file(filename)
-      puts csvfile.data[0]
     else
       outstream.puts Display.file_does_not_exist
     end
@@ -69,12 +68,8 @@ class CommandProcessor
     entered_command.split[1]
   end
 
-
-
-
   def finished?(entered_command)
     entered_command = "quit" || entered_command = "q"
   end
-
 
 end
