@@ -45,7 +45,8 @@ class CommandProcessor
   def find_things(entered_command)
     attribute = entered_command.split[1]
     search_criteria = determine_criteria(entered_command)
-    results = search.search(csvfile.data, attribute, search_criteria)
+    search_results = search.search(csvfile.data, attribute, search_criteria)
+    queue.store(search_results)
   end
 
   def determine_criteria(entered_command)
