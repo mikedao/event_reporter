@@ -1,6 +1,6 @@
 require_relative 'csvhandler'
 require_relative 'sanitizer'
-
+#the search_map is the list of what users have to search for
 class Search
 
   def search(data, attribute, criteria)
