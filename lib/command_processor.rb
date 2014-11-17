@@ -2,13 +2,15 @@ require_relative 'display'
 require_relative 'help'
 require_relative 'csvhandler'
 require_relative 'queue'
+require_relative 'search'
 
 class CommandProcessor
   attr_reader   :command,
                 :instream,
                 :outstream,
                 :csvfile,
-                :queue
+                :queue,
+                :search
 
   def initialize(instream, outstream)
     @instream   = instream
@@ -16,6 +18,7 @@ class CommandProcessor
     @command    = ""
     @csvfile    = CSVHandler.new
     @queue      = Queue.new
+    @search     = Search.new
   end
 
   def process_command(entered_command)
@@ -42,8 +45,7 @@ class CommandProcessor
   def find_things(entered_command)
     attribute = entered_command.split[1]
     search_criteria = determine_criteria(entered_command)
-    outstream.puts "Search Criteria :#{search_criteria}"
-    outstream.puts "Attribute :#{attribute}"
+    results = search.search(csvfile.data, attribute, search_criteria)
   end
 
   def determine_criteria(entered_command)
