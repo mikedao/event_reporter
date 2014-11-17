@@ -19,15 +19,14 @@ class Search
     }
 
     attribute = attribute.to_sym
-
     data.select { |data| data[search_map[attribute]].downcase == criteria }
 
   end
 
 end
-#
-# csvfile = CSVHandler.new
-# csvfile.load_file("event_attendees.csv")
-# Sanitizer.state_sanitizer(csvfile.data)
-# csvsearch = Search.new
-# puts csvsearch.search(csvfile.data, "state", "xx").count
+
+csvfile = CSVHandler.new
+csvfile.load_file("event_attendees.csv")
+Sanitizer.state_sanitizer(csvfile.data)
+csvsearch = Search.new
+puts csvsearch.search(csvfile.data, "state", "nj").inspect
