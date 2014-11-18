@@ -20,6 +20,13 @@ module Display
     "File does not exist."
   end
 
+  def self.queue_clear
+    "Queue cleared."
+  end
+
+  def self.loading_file
+    "Loading file and sanitizing data, please wait."
+  end
 
   #
   #

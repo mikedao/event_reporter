@@ -33,12 +33,27 @@ class CommandProcessor
     when command[0..3] == "load"
       load_file(command)
     when command[0..4] == "queue"
-      puts "call queue method"
+      queue_commands(command)
     when command[0..3] == "find"
       find_things(command)
     else
       outstream.puts Display.invalid_command
     end
+  end
+
+  def queue_commands(entered_command)
+    case
+    when entered_command == "queue count"
+      outstream.puts "Number of items: #{queue.data.count}"
+    when entered_command == "queue clear"
+      queue.clear
+      outstream.puts Display.queue_clear
+    when entered_command == "queue print"
+      queue.print(instream,outstream)
+    end
+    parsed_command = entered_command.split
+    queue.print_by(instream, outstream, parsed_command[3]) if parsed_command[2] == "by"
+    csvfile.save_file(parsed_command[3],queue.data) if parsed_command[2] == "to"
   end
 
 
@@ -61,6 +76,7 @@ class CommandProcessor
       filename = entered_filename(entered_command)
     end
     if File.exist?(filename)
+      outstream.puts Display.loading_file
       csvfile.load_file(filename)
     else
       outstream.puts Display.file_does_not_exist

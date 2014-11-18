@@ -67,7 +67,7 @@ module Sanitizer
     if state == "" || state.nil?
       state = "xx"
     else
-      state = state[0..1].upcase
+      state = state[0..1].downcase
     end
   end
 end
