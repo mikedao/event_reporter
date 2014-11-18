@@ -48,10 +48,3 @@ class Queue
   end
 
 end
-
-# queue = Queue.new
-# csvfile = CSVHandler.new
-# csvfile.load_file("event_attendees.csv")
-# searcher = Search.new
-# queue.load_data(searcher.search(csvfile.data, "first_name", "allison"))
-# queue.print_by("last_name")

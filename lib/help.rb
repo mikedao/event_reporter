@@ -1,6 +1,5 @@
 module Help
 
-
   def self.show_help(instream, outstream, command)
 
     case
