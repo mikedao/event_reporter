@@ -20,11 +20,3 @@ module Outputter
   end
 
 end
-
-csvfile = CSVHandler.new
-csvfile.load_file("event_attendees.csv")
-Sanitizer.zip_code_sanitizer(csvfile.data)
-Sanitizer.phone_number_sanitizer(csvfile.data)
-Sanitizer.name_sanitizer(csvfile.data)
-
-puts Outputter.output(csvfile.data)

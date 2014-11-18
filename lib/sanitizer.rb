@@ -1,5 +1,14 @@
 module Sanitizer
 
+
+  def self.sanitize_data(data)
+    zip_code_sanitizer(data)
+    phone_number_sanitizer(data)
+    name_sanitizer(data)
+    city_sanitizer(data)
+    state_sanitizer(data)
+  end
+
   def self.zip_code_sanitizer(data)
     data.each do |data|
       data[8] = format_zipcode(data[8])

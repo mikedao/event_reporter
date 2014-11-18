@@ -1,4 +1,5 @@
 require 'csv'
+require_relative 'sanitizer'
 
 class CSVHandler
   attr_accessor   :data
@@ -9,10 +10,11 @@ class CSVHandler
 
   def load_file(filename)
     CSV.foreach(filename, headers: true, header_converters: :symbol) do |row|
-      data << [
+      @data << [
         row[:regdate],row[:first_name],row[:last_name],row[:email_address],row[:homephone],
       row[:street],row[:city],row[:state],row[:zipcode]
       ]
+      Sanitizer.sanitize_data(@data)
     end
   end
 
