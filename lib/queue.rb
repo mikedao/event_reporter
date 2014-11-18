@@ -1,3 +1,4 @@
+
 require_relative 'outputter'
 require_relative 'csvhandler'
 require_relative 'search'
@@ -6,6 +7,11 @@ class Queue
 
   def initialize
     @data = []
+  end
+
+  def store(the_find)
+    @data = the_find
+
   end
 
   def clear
