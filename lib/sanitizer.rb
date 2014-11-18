@@ -1,6 +1,5 @@
 module Sanitizer
 
-
   def self.sanitize_data(data)
     zip_code_sanitizer(data)
     phone_number_sanitizer(data)
