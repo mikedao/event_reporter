@@ -18,15 +18,15 @@ class Queue
     @data = []
   end
 
-  def print
-    Outputter.output(data)
+  def print(instream, outstream)
+    Outputter.output(instream, outstream, data)
   end
 
   def load_data(data)
     @data = data
   end
 
-  def print_by(attribute)
+  def print_by(instream, outstream, attribute)
     print_by_map = Hash.new
     print_by_map =
     {
@@ -44,14 +44,14 @@ class Queue
     attribute = attribute.to_sym
 
     sorted_data = @data.sort_by { |datum| datum[print_by_map[attribute]] }
-    Outputter.output(sorted_data)
+    Outputter.output(instream,outstream,sorted_data)
   end
 
 end
 
-queue = Queue.new
-csvfile = CSVHandler.new
-csvfile.load_file("event_attendees.csv")
-searcher = Search.new
-queue.load_data(searcher.search(csvfile.data, "first_name", "allison"))
-queue.print_by("last_name")
+# queue = Queue.new
+# csvfile = CSVHandler.new
+# csvfile.load_file("event_attendees.csv")
+# searcher = Search.new
+# queue.load_data(searcher.search(csvfile.data, "first_name", "allison"))
+# queue.print_by("last_name")

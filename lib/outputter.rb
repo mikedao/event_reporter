@@ -8,10 +8,10 @@ module Outputter
     "#{"LAST NAME".ljust(15)}#{"FIRST NAME".ljust(15)}#{"EMAIL".ljust(45)}#{"ZIP CODE".ljust(10)}#{"CITY ".ljust(20)}#{"STATE".ljust(10)}#{"ADDRESS".ljust(45)}#{"PHONE".ljust(20)}"
   end
 
-  def self.output(data)
-    puts header
+  def self.output(instream, outstream, data)
+    outstream.puts header
     data.each do |data|
-      puts data_display(data)
+      outstream.puts data_display(data)
     end
   end
 
