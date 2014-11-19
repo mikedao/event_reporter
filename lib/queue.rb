@@ -7,8 +7,8 @@ class Queue
     @data = []
   end
 
-  def store(the_find)
-    @data = the_find
+  def store(search_results)
+    @data = search_results
   end
 
   def clear
@@ -17,10 +17,6 @@ class Queue
 
   def print(instream, outstream)
     Outputter.output(instream, outstream, data)
-  end
-
-  def load_data(data)
-    @data = data
   end
 
   def print_by(instream, outstream, attribute)
