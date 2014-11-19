@@ -1,6 +1,3 @@
-require 'simplecov'
-SimpleCov.start
-
 require_relative 'testhelper'
 require 'sanitizer'
 require 'csvhandler'
