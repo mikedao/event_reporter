@@ -16,4 +16,10 @@ class CSVHandlerTest < Minitest::Test
     refute csvtest.data[0].nil?
   end
 
+  def test_saves
+    csvfile = CSVHandler.new
+    csvfile.load_file("event_attendees.csv")
+    csvfile.save_file("test.csv", csvfile.data)
+    assert File.exist?("test.csv")
+  end
 end

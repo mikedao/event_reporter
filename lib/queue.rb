@@ -20,8 +20,9 @@ class Queue
   end
 
   def print_by(instream, outstream, attribute)
-    sorted_data = @data.sort_by { |datum| datum.send(attribute) }
-    Outputter.output(instream,outstream,sorted_data)
+    @data = @data.sort_by { |datum| datum.send(attribute) }
+    print(instream,outstream)
   end
+
 
 end
