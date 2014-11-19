@@ -26,7 +26,7 @@ class CommandProcessor
     case
     when command == ""
         outstream.puts Display.invalid_command
-    when command == "q" || "quit"
+    when command == "q" || command == "quit"
         outstream.puts Display.quit_message
     when command[0..3] == "help"
       Help.show_help(instream,outstream,command)
