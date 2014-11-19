@@ -18,7 +18,7 @@ class Entry
     @email_address    = Sanitizer.downcaser(data[:email_address])
     @homephone        = Sanitizer.format_phone_number(data[:homephone])
     @street           = Sanitizer.downcaser(data[:street])
-    @city             = Sanitizer.format_city(data[:city])
+    @city             = Sanitizer.downcaser(data[:city])
     @state            = Sanitizer.format_state(data[:state])
     @zipcode          = Sanitizer.format_zipcode(data[:zipcode])
   end
