@@ -1,7 +1,3 @@
-require_relative 'csvhandler'
-require_relative 'sanitizer'
-# to output the queue (Search results)
-
 module Outputter
 
   def self.header
@@ -9,6 +5,7 @@ module Outputter
   end
 
   def self.output(instream, outstream, data)
+    clear_screen(instream,outstream)
     outstream.puts header
     data.each do |data|
       outstream.puts data_display(data)
@@ -16,7 +13,12 @@ module Outputter
   end
 
   def self.data_display(data)
-    "#{data[2].ljust(15)}#{data[1].ljust(15)}#{data[3].ljust(45)}#{data[8].ljust(10)}#{data[6].ljust(20)}#{data[7].ljust(10)}#{data[5].ljust(45)}#{data[4].ljust(20)}"
+    "#{data.send("last_name").ljust(15)}#{data.send("first_name").ljust(15)}#{data.send("email_address").ljust(45)}#{data.send("zipcode").ljust(10)}#{data.send("city").ljust(20)}#{data.send("state").ljust(10)}#{data.send("street").ljust(45)}#{data.send("homephone").ljust(20)}"
+  end
+
+
+  def self.clear_screen(instream,outstream)
+    print "\e[2J\e[f"
   end
 
 end

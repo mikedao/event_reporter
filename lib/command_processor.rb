@@ -1,8 +1,8 @@
-require_relative 'display'
-require_relative 'help'
-require_relative 'csvhandler'
-require_relative 'queue'
-require_relative 'search'
+require 'display'
+require 'help'
+require 'csvhandler'
+require 'queue'
+require 'search'
 
 class CommandProcessor
   attr_reader   :command,
