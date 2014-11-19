@@ -1,5 +1,5 @@
-require_relative 'display'
-require_relative 'command_processor'
+require 'display'
+require 'command_processor'
 
 class CLI
   attr_reader   :command,
@@ -30,6 +30,3 @@ class CLI
 
 
 end
-
-cli = CLI.new($stdin, $stdout)
-cli.call
