@@ -16,13 +16,6 @@ module Sanitizer
     end
   end
 
-
-
-  def self.name_sanitizer(data)
-    data.downcase
-  end
-
-
   def self.format_city(city)
     if city.nil? || city == ""
       city = "no city provided"

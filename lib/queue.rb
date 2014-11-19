@@ -9,7 +9,6 @@ class Queue
 
   def store(the_find)
     @data = the_find
-
   end
 
   def clear
@@ -25,7 +24,6 @@ class Queue
   end
 
   def print_by(instream, outstream, attribute)
-
     sorted_data = @data.sort_by { |datum| datum.send(attribute) }
     Outputter.output(instream,outstream,sorted_data)
   end

@@ -18,7 +18,7 @@ module Outputter
 
 
   def self.clear_screen(instream,outstream)
-    print "\e[2J\e[f"
+    outstream.print "\e[2J\e[f"
   end
 
 end
