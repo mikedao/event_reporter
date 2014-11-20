@@ -1,7 +1,29 @@
 module HelpMessages
+  require 'terminal-table/import'
+
+
+  def  initialize
+    @user_table = user_table
+  end
 
   def self.help_only
-  "Command\t\tArgument\nload \t\t<filename.csv>\nqueue\t\tcount, clear, print, print by <attribute>\nsave to \t<filename.csv>\nfind\t\t<attribute> <criteria>"
+    puts
+    user_table = table do |v|
+    v.style.width = 100
+    v.headings = 'HELP MENU', 'User Commands *type this*','What the Command Will Do'
+    v << [ " ", "load" , "load the stored records"]
+    v << [ " ", "find <attribute> <criteria>", "find the records you want"]
+    v << [ " ", "queue count", "show how many records are in the current queue"]
+    v << [ " ", "queue clear", "empty the queue"]
+    v << [ " ", "queue print", "output a table with a header row of attributes"]
+    v << [ " ", "queue print by <attribute>", "output sorted by attribute"]
+    v << [ " ", "queue save to <filename.csv> ","export to a csv file"]
+  end
+  puts user_table
+  puts "Attribute options: last_name, first_name, email, zipcode, city, state, street and homephone"
+  puts "Criteria examples: 'New York', '20011', 'John', 'Chicago'"
+
+  # "Command\t\tArgument\nload \t\t<filename.csv>\nqueue\t\tcount, clear, print, print by <attribute>\nsave to \t<filename.csv>\nfind\t\t<attribute> <criteria>"
   end
 
   def self.not_valid_command
@@ -9,15 +31,15 @@ module HelpMessages
   end
 
   def self.help_queue_count
-    "Output how many records are in the current queue"
+    "Outputs how many records are in the current queue."
   end
 
   def self.help_queue_clear
-    "Empty the queue."
+    "Queue clear empties the queue."
   end
 
   def self.help_queue_print
-    "Print out a tab delimited table with a header row."
+    "prints out a tab delimited table with a header row."
   end
 
   def self.help_queue_print_by
