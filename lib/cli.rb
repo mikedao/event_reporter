@@ -1,5 +1,6 @@
 require 'display'
 require 'command_processor'
+require 'colorize'
 
 class CLI
   attr_reader   :command,
@@ -15,7 +16,8 @@ class CLI
   end
 
   def call
-    outstream.puts Display.intro
+    outstream.puts Display.intro.red
+    outstream.puts Display.options_of_what_to_do
 
     until finished?
       outstream.print Display.command_request

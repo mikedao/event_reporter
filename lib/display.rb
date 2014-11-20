@@ -4,6 +4,10 @@ module Display
     "Welcome to Event Reporter EXTREME"
   end
 
+  def self.options_of_what_to_do
+    "\nType 'load,' to access the database, 'help' for a complete list of user commands, or 'quit' to exit the program.\n"
+  end
+
   def self.command_request
     "> "
   end
@@ -13,7 +17,7 @@ module Display
   end
 
   def self.quit_message
-    "Quitting Event Reporter."
+    "Quitting Event Reporter Extreme."
   end
 
   def self.file_does_not_exist
@@ -25,7 +29,7 @@ module Display
   end
 
   def self.loading_file
-    "Loading file and sanitizing data, please wait."
+    "Loading file and sanitizing data, please wait.".red
   end
 
 end
